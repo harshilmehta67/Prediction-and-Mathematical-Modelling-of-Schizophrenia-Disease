@@ -8,7 +8,7 @@ from mpl_toolkits.mplot3d import Axes3D
 # Function for getting probability for given values of Allene Frequency
 
 
-def get_Probability_factor(input, mul):
+def get_Probability_factor(mul, input):
     return input*(mul*mul + 2*mul*(1-mul))  # (1/x) * (p^2 + 2*p*q)
 
 # Utility function for splitting 2D data into 3D
@@ -56,7 +56,8 @@ def plot_graph_demo(x, y, z):
     z.sort()
     fig = plt.figure()
     ax = fig.gca(projection='3d')
-    ax.plot(x, y, z, color='blue', linestyle='solid',label='Probability vs N & T')
+    ax.plot(x, y, z, color='blue', linestyle='solid',
+            label='Probability vs N & T')
     ax.legend()
     ax.set_xlabel('N')
     ax.set_ylabel('T')
@@ -96,7 +97,7 @@ if __name__ == "__main__":
     patient_population = 0.01*total_population
     non_patient_population = 0.99*total_population
     Sum_of_all_Prob = 0
-    
+
     # 3 cases of any offspring
     # Case : 1 -> PP x PP
     # Case : 2 -> NP x NP
@@ -133,5 +134,5 @@ if __name__ == "__main__":
     Sum_of_all_Prob += solve_probability_case(non_patient_population, patient_population,
                                               total_population, 0.01, 0.8, case_study)
 
-    print('Final Sum of Probability over every variations = '+ str(Sum_of_all_Prob))
+    print('Final Sum of Probability over every variations = ' + str(Sum_of_all_Prob))
     plt.show()
