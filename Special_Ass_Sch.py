@@ -29,6 +29,19 @@ def gen_pairs_forPlot(x):
 def gen_OddRatio(work, work_2):
     return (work / (1 - work)) / (work_2 / (1 - work_2))
 
+
+def show_hierarchy():
+    objects = ('Parents', 'Offsprings', 'Siblings',
+               'Half - siblings', 'Grandchildren', 'Nephews', 'Uncles')
+    y_pos = np.arange(len(objects))
+    performance = [10, 8, 6, 4, 2, 1]
+
+    plt.bar(y_pos, performance, align='center', alpha=0.5)
+    plt.xticks(y_pos, objects)
+    plt.ylabel('Probabilities')
+    plt.title('Familial risk in schizophrenia')
+
+
 # Utility Function for getting 2D graph
 
 
@@ -111,7 +124,7 @@ if __name__ == "__main__":
     get_data((0.01*0.01), 0.8, 0.99)
     gen_pairs_forPlot(threshold_freq)
     plot_graph_3D(New_x, New_y, Probabilities_ans)
-    Sum_of_all_Prob += (0.01)*(0.01)*solve_probability_case(0.8, 0.8, case_study)
+    Probability_case1 = solve_probability_case(0.8, 0.8, case_study)
 
     # Case study for #2 Case
     case_study = 'Both Parents are in Non Patient Population'
@@ -119,7 +132,7 @@ if __name__ == "__main__":
     get_data((0.99*0.99), 0.00001, 0.01)
     gen_pairs_forPlot(threshold_freq)
     plot_graph_3D(New_x, New_y, Probabilities_ans)
-    Sum_of_all_Prob += (0.99)*(0.99)*solve_probability_case(0.01, 0.01, case_study)
+    Probability_case2 = solve_probability_case(0.01, 0.01, case_study)
 
     # Case study for #3 Case
     case_study = 'One parent is in Non patient Population and other in Patient Population'
@@ -128,7 +141,10 @@ if __name__ == "__main__":
              random.uniform(0.8, 0.95))
     gen_pairs_forPlot(threshold_freq)
     plot_graph_3D(New_x, New_y, Probabilities_ans)
-    Sum_of_all_Prob += (0.01)*(0.99)*solve_probability_case(0.01, 0.8, case_study)
+    Probability_case3 = solve_probability_case(0.01, 0.8, case_study)
+    Sum_of_all_Prob = Probability_case1 * \
+        (0.01)*(0.01) + Probability_case2 * \
+        ((0.99)*(0.99)) + Probability_case3*((0.01)*(0.99))
 
     print('Final Sum of Probability over every variations = ' + str(Sum_of_all_Prob))
     plt.show()
