@@ -22,7 +22,7 @@ def gen_pairs_forPlot(x):
     # print(New_x)
     # print(New_y)
 
-# Unknown Work - requires major altercations
+# Ratio Work - requires major altercations
 # Future Work
 
 
@@ -37,8 +37,9 @@ def show_Strachan_hierarchy(Value):
     objects = ('Parents', 'Offsprings', 'Siblings',
                'Half - siblings', 'Grandchildren', 'Nephews', 'Uncles')
     y_pos1 = np.arange(len(objects))
-    performance = [Value, Value*0.92 , Value*0.74 , Value*0.53 , Value*0.48 , Value*0.31 , Value*0.28]
-    plt.bar(y_pos1, performance, align='center',color = 'green', alpha=0.6)
+    performance = [Value, Value*0.92, Value*0.74,
+                   Value*0.53, Value*0.48, Value*0.31, Value*0.28]
+    plt.bar(y_pos1, performance, align='center', color='green', alpha=0.6)
     plt.xticks(y_pos1, objects)
     plt.ylabel('Relative Probabilities')
     plt.title('Familial risk in schizophrenia using strachan hierarchy')
@@ -52,8 +53,9 @@ def show_present_hierarchy(Value):
     objects = ('Parents', 'Offsprings', 'Siblings',
                'Half - siblings', 'Grandchildren', 'Nephews', 'Uncles')
     y_pos2 = np.arange(len(objects))
-    performance = [Value, Value*0.92 , Value*0.76 , Value*0.54 , Value*0.53 , Value*0.51 , Value*0.39]
-    plt.bar(y_pos2, performance, align='center',color = 'yellow', alpha=0.6)
+    performance = [Value, Value*0.92, Value*0.76,
+                   Value*0.54, Value*0.53, Value*0.51, Value*0.39]
+    plt.bar(y_pos2, performance, align='center', color='yellow', alpha=0.6)
     plt.xticks(y_pos2, objects)
     plt.ylabel('Relative Probabilities')
     plt.title('Familial risk in schizophrenia From present studies')
@@ -140,7 +142,7 @@ if __name__ == "__main__":
     New_y = []
     get_data((0.01*0.01), 0.8, 0.99)
     gen_pairs_forPlot(threshold_freq)
-    # plot_graph_3D(New_x, New_y, Probabilities_ans)
+    plot_graph_3D(New_x, New_y, Probabilities_ans)
     Probability_case1 = solve_probability_case(0.8, 0.8, case_study)
     show_Strachan_hierarchy(Probability_case1)
     show_present_hierarchy(Probability_case1)
@@ -150,7 +152,7 @@ if __name__ == "__main__":
     clear_arrays(threshold_freq, New_x, New_y, Probabilities_ans)
     get_data((0.99*0.99), 0.00001, 0.01)
     gen_pairs_forPlot(threshold_freq)
-    # plot_graph_3D(New_x, New_y, Probabilities_ans)
+    plot_graph_3D(New_x, New_y, Probabilities_ans)
     Probability_case2 = solve_probability_case(0.01, 0.01, case_study)
 
     # Case study for #3 Case
@@ -159,7 +161,7 @@ if __name__ == "__main__":
     get_data((0.99*0.01), random.uniform(0.001, 0.01),
              random.uniform(0.8, 0.95))
     gen_pairs_forPlot(threshold_freq)
-    # plot_graph_3D(New_x, New_y, Probabilities_ans)
+    plot_graph_3D(New_x, New_y, Probabilities_ans)
     Probability_case3 = solve_probability_case(0.01, 0.8, case_study)
     Sum_of_all_Prob = Probability_case1 * \
         (0.01)*(0.01) + Probability_case2 * \
