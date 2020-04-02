@@ -50,7 +50,7 @@ def clear_arrays(x, y, z, w):
 # Final Function for plotting 3D graph
 
 
-def plot_graph_demo(x, y, z):
+def plot_graph_3D(x, y, z):
     x.sort()
     y.sort()
     z.sort()
@@ -75,16 +75,15 @@ def get_data(ratio, starPoint, endPoint):
 # Function for Solving Joint Probability and Mathematical Equations with Auxilary output function
 
 
-def solve_probability_case(typeA_pop, typeB_pop, total_population, Allele_A_freq, Allele_B_freq, case_study):
-    chance_of_case = (typeA_pop/total_population * typeB_pop /
-                      total_population)  # Joint Probability
+def solve_probability_case(Allele_A_freq, Allele_B_freq, case_study):
+    # Joint Probability
     B_a = Allele_A_freq  # given probability of type A genes in person A
     b_a = 1 - Allele_A_freq
     B_b = Allele_B_freq  # given probability of type B genes in person B
     b_b = 1 - Allele_B_freq
-    Probability_schizophrenia = chance_of_case * \
+    Probability_schizophrenia = 1 * \
         (B_a*B_b + B_a*b_b + B_b*b_a)  # Total Probability Theorem
-    print('Probability of OffSpring having Schizophrenia in Case when ' + case_study)
+    print('Relative Probability of OffSpring having Schizophrenia in Case when ' + case_study)
     print(Probability_schizophrenia)
     # Final Probability for diseased offspring
     return Probability_schizophrenia
@@ -111,18 +110,16 @@ if __name__ == "__main__":
     New_y = []
     get_data((0.01*0.01), 0.8, 0.99)
     gen_pairs_forPlot(threshold_freq)
-    plot_graph_demo(New_x, New_y, Probabilities_ans)
-    Sum_of_all_Prob += solve_probability_case(
-        patient_population, patient_population, total_population, 0.8, 0.8, case_study)
+    plot_graph_3D(New_x, New_y, Probabilities_ans)
+    Sum_of_all_Prob += (0.01)*(0.01)*solve_probability_case(0.8, 0.8, case_study)
 
     # Case study for #2 Case
     case_study = 'Both Parents are in Non Patient Population'
     clear_arrays(threshold_freq, New_x, New_y, Probabilities_ans)
     get_data((0.99*0.99), 0.00001, 0.01)
     gen_pairs_forPlot(threshold_freq)
-    plot_graph_demo(New_x, New_y, Probabilities_ans)
-    Sum_of_all_Prob += solve_probability_case(non_patient_population, non_patient_population,
-                                              total_population, 0.01, 0.01, case_study)
+    plot_graph_3D(New_x, New_y, Probabilities_ans)
+    Sum_of_all_Prob += (0.99)*(0.99)*solve_probability_case(0.01, 0.01, case_study)
 
     # Case study for #3 Case
     case_study = 'One parent is in Non patient Population and other in Patient Population'
@@ -130,9 +127,8 @@ if __name__ == "__main__":
     get_data((0.99*0.01), random.uniform(0.001, 0.01),
              random.uniform(0.8, 0.95))
     gen_pairs_forPlot(threshold_freq)
-    plot_graph_demo(New_x, New_y, Probabilities_ans)
-    Sum_of_all_Prob += solve_probability_case(non_patient_population, patient_population,
-                                              total_population, 0.01, 0.8, case_study)
+    plot_graph_3D(New_x, New_y, Probabilities_ans)
+    Sum_of_all_Prob += (0.01)*(0.99)*solve_probability_case(0.01, 0.8, case_study)
 
     print('Final Sum of Probability over every variations = ' + str(Sum_of_all_Prob))
     plt.show()
