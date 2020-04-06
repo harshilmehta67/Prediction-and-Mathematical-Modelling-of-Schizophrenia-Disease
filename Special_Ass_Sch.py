@@ -144,8 +144,8 @@ if __name__ == "__main__":
     gen_pairs_forPlot(threshold_freq)
     plot_graph_3D(New_x, New_y, Probabilities_ans)
     Probability_case1 = solve_probability_case(0.8, 0.8, case_study)
-    show_Strachan_hierarchy(Probability_case1)
-    show_present_hierarchy(Probability_case1)
+    # show_Strachan_hierarchy(Probability_case1)
+    # show_present_hierarchy(Probability_case1)
 
     # Case study for #2 Case
     case_study = 'Both Parents are in Non Patient Population'
