@@ -16,10 +16,10 @@ def get_Probability_factor(mul, input):
 
 def gen_pairs_forPlot(x):
     for i in range(0, len(x)):
-        temp = random.uniform(20, 160)
+        temp = int(random.uniform(20, 160))
         New_x.append(temp)
         New_y.append(x[i] / temp)
-    # print(New_x)
+    print(New_x)
     # print(New_y)
 
 # Ratio Work - requires major altercations
