@@ -5,17 +5,17 @@ from mpl_toolkits import mplot3d
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-# Function for getting probability for given values of Allene Frequency
+# Function for getting probability for given values of Allene Frequency According to Hardy Weingberg Equilibrium
 
 
 def get_Probability_factor(mul, input):
-    return input*(mul*mul + 2*mul*(1-mul))  # (1/x) * (p^2 + 2*p*q)
+    return input*(mul*mul + 2*mul*(1-mul))  # (1/x) * (p^2 + 2*p*q) 
 
 # Utility function for splitting 2D data into 3D
 
 
 def gen_pairs_forPlot(x):
-    for i in range(0, len(x)):
+    for i in range(0, len(x)):  
         temp = int(random.uniform(20, 160))
         New_x.append(temp)
         New_y.append(x[i] / temp)
