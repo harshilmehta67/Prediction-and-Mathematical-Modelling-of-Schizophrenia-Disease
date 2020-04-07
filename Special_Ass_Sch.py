@@ -114,7 +114,7 @@ def solve_probability_case(Allele_A_freq, Allele_B_freq, case_study):
     B_b = Allele_B_freq  # given probability of type B genes in person B
     b_b = 1 - Allele_B_freq
     Probability_schizophrenia = 1 * \
-        (B_a*B_b + B_a*b_b + B_b*b_a)  # Total Probability Theorem
+        (B_a*B_b + B_a*b_b + B_b*b_a)  # Total Probability Theorem using Relative Frequency Approach
     print('Relative Probability of OffSpring having Schizophrenia in Case when ' + case_study)
     print(Probability_schizophrenia)
     # Final Probability for diseased offspring
