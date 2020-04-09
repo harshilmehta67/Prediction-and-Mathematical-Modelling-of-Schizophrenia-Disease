@@ -23,9 +23,6 @@ def gen_pairs_forPlot(x):
     # print(New_x)
     # print(New_y)
 
-# Unknown Dhap - requires major altercations
-
-
 def gen_OddRatio(dhap, non_dhap):
     return (dhap / (1 - dhap)) / (non_dhap / (1 - non_dhap))
 
