@@ -119,7 +119,6 @@ def solve_probability_case(Allele_A_freq, Allele_B_freq, case_study):
     print(Probability_schizophrenia)
     # Final Probability for diseased offspring
     return Probability_schizophrenia
-    # print(1 - Probability_schizophrenia)
 
 
 if __name__ == "__main__":
